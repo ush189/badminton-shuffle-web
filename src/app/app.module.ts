@@ -5,10 +5,14 @@ import { HttpModule } from '@angular/http';
 import { MaterialModule } from '@angular/material';
 
 import { AppComponent } from './app.component';
+import { PlayersComponent } from './players/players.component';
+import { MatchesComponent } from './matches/matches.component';
 
 @NgModule({
     declarations: [
-        AppComponent
+        AppComponent,
+        PlayersComponent,
+        MatchesComponent
     ],
     imports: [
         BrowserModule,
