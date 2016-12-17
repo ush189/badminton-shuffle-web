@@ -1,3 +1,7 @@
-<p>
-  players works!
-</p>
+<md-input placeholder="Neuen Spieler eingeben"></md-input>
+<md-list dense>
+    <md-list-item *ngFor="let player of allPlayers">
+        <md-checkbox></md-checkbox>
+        {{player}}
+    </md-list-item>
+</md-list>
