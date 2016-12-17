@@ -8,8 +8,8 @@ import { PlayerService } from '../player.service';
     providers: [PlayerService]
 })
 export class PlayersComponent implements OnInit {
-    allPlayers: string[] = [];
-    newPlayer: string = '';
+    allPlayers: any[] = [];
+    newPlayerName: string = '';
 
     constructor(private playerService: PlayerService) {
     }
@@ -20,7 +20,12 @@ export class PlayersComponent implements OnInit {
     }
 
     addPlayer() {
-        this.playerService.addPlayer(this.newPlayer);
-        this.newPlayer = '';
+        this.playerService.addPlayer(
+            {
+                name: this.newPlayerName,
+                selected: true
+            }
+        );
+        this.newPlayerName = '';
     }
 }
