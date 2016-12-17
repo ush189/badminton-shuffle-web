@@ -9,6 +9,7 @@ import { PlayerService } from '../player.service';
 })
 export class PlayersComponent implements OnInit {
     allPlayers: string[] = [];
+    newPlayer: string = '';
 
     constructor(private playerService: PlayerService) {
     }
@@ -16,5 +17,10 @@ export class PlayersComponent implements OnInit {
     ngOnInit() {
         this.playerService.getAllPlayers()
             .then(allPlayers => this.allPlayers = allPlayers);
+    }
+
+    addPlayer() {
+        this.playerService.addPlayer(this.newPlayer);
+        this.newPlayer = '';
     }
 }
