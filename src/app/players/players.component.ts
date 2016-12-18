@@ -21,12 +21,13 @@ export class PlayersComponent implements OnInit {
     }
 
     addPlayer() {
-        this.playerService.addPlayer(
-            {
-                name: this.newPlayerName,
-                selected: true
-            }
-        );
+        let newPlayer = {
+            name: this.newPlayerName,
+            selected: true
+        };
+
+        this.allPlayers.push(newPlayer);
+        this.playerService.addPlayer(newPlayer);
         this.newPlayerName = '';
     }
 
