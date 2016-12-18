@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { PlayerService } from '../player.service';
+import { Player } from '../player';
 
 @Component({
     selector: 'app-players',
@@ -8,7 +9,7 @@ import { PlayerService } from '../player.service';
     providers: [PlayerService]
 })
 export class PlayersComponent implements OnInit {
-    allPlayers: any[] = [];
+    allPlayers: Player[] = [];
     newPlayerName: string = '';
 
     constructor(private playerService: PlayerService) {

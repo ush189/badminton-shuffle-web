@@ -1,4 +1,5 @@
 import { Injectable } from '@angular/core';
+import { Player } from './player';
 
 @Injectable()
 export class PlayerService {
@@ -40,11 +41,11 @@ export class PlayerService {
     constructor() {
     }
 
-    getAllPlayers(): Promise<any[]> {
+    getAllPlayers(): Promise<Player[]> {
         return Promise.resolve(this.allPlayers);
     }
 
-    getAllSelectedPlayers(): Promise<any[]> {
+    getAllSelectedPlayers(): Promise<Player[]> {
         return this.getAllPlayers()
             .then(allPlayers => {
                 return allPlayers.filter(player => player.selected)
