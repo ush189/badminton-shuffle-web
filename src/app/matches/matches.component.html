@@ -1,1 +1,9 @@
 Anzahl ausgewählte Spieler: {{selectedPlayers.length}}
+<br>
+<button md-raised-button color="primary" (click)="shuffle()">Shuffle!</button>
+
+<md-list dense>
+    <md-list-item *ngFor="let player of shuffledPlayers">
+        {{player.name}}
+    </md-list-item>
+</md-list>

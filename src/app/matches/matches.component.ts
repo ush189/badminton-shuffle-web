@@ -10,6 +10,7 @@ import { Player } from '../player';
 })
 export class MatchesComponent implements OnInit {
     selectedPlayers: Player[] = [];
+    shuffledPlayers: Player[] = [];
 
     constructor(private playerService: PlayerService) {
     }
@@ -25,5 +26,23 @@ export class MatchesComponent implements OnInit {
     refreshSelectedPlayers() {
         this.playerService.getAllSelectedPlayers()
             .then(selectedPlayers => this.selectedPlayers = selectedPlayers);
+    }
+
+    shuffle() {
+        this.shuffledPlayers = this.shuffleArray(this.selectedPlayers.slice(0));
+    }
+
+    /**
+     * Randomize array element order in-place.
+     * Using Durstenfeld shuffle algorithm.
+     */
+    shuffleArray(array) {
+        for (let i = array.length - 1; i > 0; i--) {
+            let j = Math.floor(Math.random() * (i + 1));
+            let temp = array[i];
+            array[i] = array[j];
+            array[j] = temp;
+        }
+        return array;
     }
 }
