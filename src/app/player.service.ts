@@ -28,6 +28,6 @@ export class PlayerService {
     }
 
     updatePlayers(players): void {
-        localStorage['players'] = players;
+        localStorage['players'] = JSON.stringify(players);
     }
 }
