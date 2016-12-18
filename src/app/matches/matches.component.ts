@@ -14,6 +14,14 @@ export class MatchesComponent implements OnInit {
     }
 
     ngOnInit() {
+        this.refreshSelectedPlayers();
+    }
+
+    init() {
+        this.refreshSelectedPlayers();
+    }
+
+    refreshSelectedPlayers() {
         this.playerService.getAllSelectedPlayers()
             .then(selectedPlayers => this.selectedPlayers = selectedPlayers);
     }

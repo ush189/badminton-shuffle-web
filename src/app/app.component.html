@@ -1,6 +1,6 @@
-<md-tab-group>
+<md-tab-group (selectChange)="matches.init()">
     <md-tab label="Paarungen">
-        <app-matches></app-matches>
+        <app-matches #matches></app-matches>
     </md-tab>
     <md-tab label="Spieler">
         <app-players></app-players>

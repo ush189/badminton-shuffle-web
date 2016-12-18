@@ -28,4 +28,8 @@ export class PlayersComponent implements OnInit {
         );
         this.newPlayerName = '';
     }
+
+    updatePlayers() {
+        this.playerService.updatePlayers(this.allPlayers);
+    }
 }

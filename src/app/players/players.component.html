@@ -2,7 +2,7 @@
 
 <md-list dense>
     <md-list-item *ngFor="let player of allPlayers">
-        <md-checkbox [checked]="player.selected"></md-checkbox>
+        <md-checkbox [(ngModel)]="player.selected" (change)="updatePlayers()"></md-checkbox>
         {{player.name}}
     </md-list-item>
 </md-list>

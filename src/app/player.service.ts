@@ -46,10 +46,17 @@ export class PlayerService {
 
     getAllSelectedPlayers(): Promise<any[]> {
         return this.getAllPlayers()
-            .then(allPlayers => allPlayers.filter(player => player.selected))
+            .then(allPlayers => {
+                return allPlayers.filter(player => player.selected)
+            })
     }
 
     addPlayer(player): void {
         this.allPlayers.push(player);
+        this.getAllPlayers().then(players => console.log('add', players.length))
+    }
+
+    updatePlayers(players) {
+        this.allPlayers = players;
     }
 }
