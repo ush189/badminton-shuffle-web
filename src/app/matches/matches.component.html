@@ -1,9 +1,18 @@
-Anzahl ausgewählte Spieler: {{selectedPlayers.length}}
+<p>Anzahl ausgewählte Spieler: {{selectedPlayers.length}}</p>
+
+<md-select [(ngModel)]="numberOfCourts">
+    <md-option [value]="2">2 Plätze</md-option>
+    <md-option [value]="3">3 Plätze</md-option>
+    <md-option [value]="4">4 Plätze</md-option>
+</md-select>
 <br>
 <button md-raised-button color="primary" (click)="shuffle()">Shuffle!</button>
 
-<md-list dense>
-    <md-list-item *ngFor="let player of shuffledPlayers">
-        {{player.name}}
-    </md-list-item>
-</md-list>
+<fieldset *ngFor="let i of courts">
+    <md-list dense>
+        <!-- TODO: get rid of that ugly code -->
+        <md-list-item *ngFor="let player of shuffledPlayers.slice(i * 4, i * 8 -1 >= 0 ? i * 8 -1 : 3)">
+            {{player.name}}
+        </md-list-item>
+    </md-list>
+</fieldset>

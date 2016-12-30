@@ -9,6 +9,8 @@ import { Player } from '../player';
     providers: [PlayerService]
 })
 export class MatchesComponent implements OnInit {
+    numberOfCourts: number = 2;
+    courts: number[] = [];
     selectedPlayers: Player[] = [];
     shuffledPlayers: Player[] = [];
 
@@ -30,6 +32,9 @@ export class MatchesComponent implements OnInit {
 
     shuffle() {
         this.shuffledPlayers = this.shuffleArray(this.selectedPlayers.slice(0));
+
+        // create array with numberOfCourts elements to iterate over it with *ngFor
+        this.courts = Array.from({length: this.numberOfCourts}, (v, k) => k);
     }
 
     /**
