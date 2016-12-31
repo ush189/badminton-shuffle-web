@@ -35,6 +35,11 @@ export class MatchesComponent implements OnInit {
 
         // create array with numberOfCourts elements to iterate over it with *ngFor
         this.courts = Array.from({length: this.numberOfCourts}, (v, k) => k);
+        console.log('courts', this.courts);
+    }
+
+    getPlayersPerCourt(court) {
+        return this.shuffledPlayers.slice(court * 4, court === 0 ? 4 : court * 8);
     }
 
     /**
