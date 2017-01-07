@@ -9,8 +9,18 @@
 <button md-raised-button color="primary" (click)="shuffle()">Shuffle!</button>
 
 <fieldset *ngFor="let i of courts">
+    <legend>Platz {{i + 1}}</legend>
     <md-list dense>
         <md-list-item *ngFor="let player of getPlayersPerCourt(i)">
+            {{player.name}}
+        </md-list-item>
+    </md-list>
+</fieldset>
+
+<fieldset *ngIf="getPlayersForTheBench().length">
+    <legend>Bank</legend>
+    <md-list dense>
+        <md-list-item *ngFor="let player of getPlayersForTheBench()">
             {{player.name}}
         </md-list-item>
     </md-list>

@@ -42,6 +42,12 @@ export class MatchesComponent implements OnInit {
         return this.shuffledPlayers.slice(court * 4, court === 0 ? 4 : court * 8);
     }
 
+    getPlayersForTheBench() {
+        let numberOfBenchPlayers = this.selectedPlayers.length - this.numberOfCourts * 4;
+
+        return this.shuffledPlayers.slice(this.selectedPlayers.length - numberOfBenchPlayers);
+    }
+
     /**
      * Randomize array element order in-place.
      * Using Durstenfeld shuffle algorithm.
