@@ -17,7 +17,7 @@
     </md-list>
 </fieldset>
 
-<fieldset *ngIf="getPlayersForTheBench().length">
+<fieldset *ngIf="getPlayersForTheBench().length" class="bench">
     <legend>Bank</legend>
     <md-list dense>
         <md-list-item *ngFor="let player of getPlayersForTheBench()">
